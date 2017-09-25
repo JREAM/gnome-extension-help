@@ -113,37 +113,4 @@ let text, button, input;
 ## Cleaned up Example Application 
 This is from the guide which is hard to follow, cleaned up and organized.
 
-```js
-// Entry Method
-function init() {
-  /*
-  We create a button for the top panel. We pass to the constructor a map of properties, properties from St.bin and its
-  parent classes, like stWidget. So we declare this properties: a style class(from css theming of gnome shell), we made it reactive
-  so the button respond for the mouse clicks, we made it that can focus, so marks the button as being able to receive keyboard focus
-  via keyboard navigation, we made the button to fill the x space, and we don't want to fill the y space, so we set the values trues and false respectively
-  and we want that the button be reactive to the hover of the mouse, so we set the value of the track_hover property to true.
-  */
-    button = new St.Bin({ style_class: 'panel-button',
-                          reactive: true,
-                          can_focus: true,
-                          x_fill: true,
-                          y_fill: false,
-                          track_hover: true });
-    /*
-      We create an icon with the system-status-icon icon and give it the name "system-run"
-     */
-    let icon = new St.Icon({ icon_name: 'system-run',
-                             style_class: 'system-status-icon' });
-    /*
-      we put as a child of the button the icon, so, in the structure of actors we have the icon inside the button that is a
-      container.
-     */
-    button.set_child(icon);
-    /*
-      we connect the actor signal "button-press-event" from the button to the funcion _showHello. In this manner,
-      when we press the button, this signal is emitted, and we captured it and execute the _showHello function.
-      You can see all signals in the clutter reference(because we are using St that implements actors from clutter, and
-      this signals comes from the actor class): http://developer.gnome.org/clutter/stable/ClutterActor.html#ClutterActor.signals
-     */
-    button.connect('button-press-event', _showHello);
-    ```
+Please see the `extension.js` which has tons of comments and read through it!
